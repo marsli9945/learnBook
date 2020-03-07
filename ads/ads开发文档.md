@@ -87,4 +87,4 @@ CREATE TABLE `ads_client_config` (
 ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='ADS-MARKET-SYSTEM'
 ```
 ##### 最终展示结果和计算逻辑
-&emsp;&emsp;说明：数据来源是ads_market_data表，但最终显示但维度中<font color=red>UA师(ua_admin)</font>并没有现成的，数据表中提供的而是<font color=red>活动参数(activity_name)</font>，因此需要通过客户端配置表ads_client_config提供的映射关系将<font color=red>活动参数</font>转化为<font color=red>UA师</font>，对应关系为一对多。
+&emsp;&emsp;说明：数据来源是ads_market_data表，但最终显示但维度中<font color=red>UA师(ua_admin)</font>并没有现成的，数据表中提供的而是<font color=red>活动参数(activity_name)</font>，因此需要通过客户端配置表ads_client_config提供的映射关系将<font color=red>活动参数</font>转化为<font color=red>UA师</font>，对应关系为一对多。11
