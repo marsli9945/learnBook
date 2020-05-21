@@ -1,0 +1,30 @@
+{
+    "select": [
+        "id",
+        "name"
+    ],
+    "where": {
+        "age": {
+            "=": 1,
+            "!=": 1,
+            ">": 1,
+            "<": 1,
+            ">=": 1,
+            "<=": 1,
+            "between": [2,5]
+        }
+    },
+    "group": [
+        "name"
+    ],
+    "order": {
+        "id": "des"
+    },
+    "limit": [4,10],
+    "join": {
+        "table": "permission",
+        "on": {
+            "user_id": "id"
+        }
+    }
+}
