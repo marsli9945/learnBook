@@ -1,0 +1,58 @@
+Kubernetes
+
+//创建应用
+kubectl create -f nginx-deployment.yaml
+
+//查看pod
+kubectl get pods -l app=nginx
+
+//更新应用
+kubectl replace -f nginx-deployment.yaml
+
+//创建或更新应用(推荐使用)
+kubectl apply -f nginx-deployment.yaml
+
+//删除应用
+kubectl delete -f nginx-deployment.yaml
+
+//查看deployment
+kubectl get deployments
+
+//实时查看 Deployment 对象的状态变化
+kubectl rollout status deployment/nginx-deployment
+
+//查看这个 Deployment 所控制的 ReplicaSet
+kubectl get rs
+
+//编辑 Etcd 里的 API 对象
+kubectl edit deployment/nginx-deployment
+
+//查看滚动更新流程
+kubectl describe deployment nginx-deployment
+
+//修改deployment镜像版本
+kubectl set image deployment/nginx-deployment nginx=nginx:1.91
+
+//把整个 Deployment 回滚到上一个版本
+kubectl rollout undo deployment/nginx-deployment
+
+//查看每次 Deployment 变更对应的版本
+kubectl rollout history deployment/nginx-deployment
+
+//查看版本3的详细信息
+kubectl rollout history deployment/nginx-deployment --revision=3
+
+//回滚到版本3
+kubectl rollout undo deployment/nginx-deployment --to-revision=3
+
+//让 Deployment 进入了一个“暂停”状态
+kubectl rollout pause deployment/nginx-deployment
+
+//恢复Deployment 运行状态
+kubectl rollout resume deployment/nginx-deployment
+
+//查看pvc 
+kubectl get pvc -l app=nginx
+
+//以“补丁”的方式（JSON 格式的）修改一个 API 对象的指定字段，也就是我在后面指定的“spec/template/spec/containers/0/image”
+kubectl patch statefulset mysql --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"mysql:5.7.23"}]'statefulset.apps/mysql patched
